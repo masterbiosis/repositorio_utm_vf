@@ -1,4 +1,21 @@
 Tareas:
-    # Alumnos
 
-    #Asesores
+Carrera
+
+Subdirector
+
+Programa
+
+Empresa
+
+Asesorempresa
+
+Alumno
+
+Directortesi
+
+Documento
+
+DocumentoLinea
+
+Linea
