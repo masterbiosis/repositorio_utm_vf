@@ -1,8 +1,8 @@
 Tareas:
 
-Carrera //Julio
+#Carrera
 
-Subdirector
+Subdirector //Julio
 
 Programa
 

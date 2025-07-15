@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\SubdirectorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,3 +37,11 @@ Route::get('carreras/{carrera}/edit',[CarreraController::class,'edit'])->name('c
 Route::match(['put','patch'],'carreras/{carrera}',[CarreraController::class,'update'])->name('carreras.update');
 Route::delete('carreras/{carrera}',[CarreraController::class,'destroy'])->name('carreras.destroy');
 
+//Subdirector
+Route::get('subdirectors',[SubdirectorController::class,'index'])->name('subdirectors.index');
+Route::get('subdirectors/create',[SubdirectorController::class,'create'])->name('subdirectors.create');
+Route::post('subdirectors',[SubdirectorController::class,'store'])->name('subdirectors.store');
+Route::get('subdirectors/{subdirector}',[SubdirectorController::class,'show'])->name('subdirectors.show');
+Route::get('subdirectors/{subdirector}/edit',[SubdirectorController::class,'edit'])->name('subdirectors.edit');
+Route::match(['put','patch'],'subdirectors/{subdirector}',[SubdirectorController::class,'update'])->name('subdirectors.update');
+Route::delete('directors/{subdirector}',[SubdirectorController::class,'destroy'])->name('subdirectors.destroy');

@@ -13,4 +13,16 @@ class Carrera extends Model
     protected $fillable = [
         'nombre',
     ];
+
+
+    public function director(){
+        //La carrera tiene un director
+        return $this->hasOne(Director::class);
+    }
+
+    public function programas(){
+        //La carrera tiene muchos programas educativos
+        return $this->hasMany(Programa::class);
+    }
+
 }
