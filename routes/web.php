@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CarreraController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,3 +25,14 @@ Route::get('/js', function () {
 Route::get('/sweet', function () {
     return view('test.sweet');
 });
+
+
+//Carrera
+Route::get('carreras',[CarreraController::class,'index'])->name('carreras.index');
+Route::get('carreras/create',[CarreraController::class,'create'])->name('carreras.create');
+Route::post('carreras',[CarreraController::class,'store'])->name('carreras.store');
+Route::get('carreras/{carrera}',[CarreraController::class,'show'])->name('carreras.show');
+Route::get('carreras/{carrera}/edit',[CarreraController::class,'edit'])->name('carreras.edit');
+Route::match(['put','patch'],'carreras/{carrera}',[CarreraController::class,'update'])->name('carreras.update');
+Route::delete('carreras/{carrera}',[CarreraController::class,'destroy'])->name('carreras.destroy');
+
