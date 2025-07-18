@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\EmpresaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,7 +29,6 @@ Route::get('/sweet', function () {
 });
 
 
-<<<<<<< HEAD
 //Alumnos//
 Route::get('alumnos',[AlumnoController::class,'index'])->name('alumnos.index');
 Route::get('alumnos/create',[AlumnoController::class,'create'])->name('alumnos.create');
@@ -37,14 +37,13 @@ Route::get('alumnos/{alumno}',[AlumnoController::class,'show'])->name('alumnos.s
 Route::get('alumnos/{alumno}/edit',[AlumnoController::class,'edit'])->name('alumnos.edit');
 Route::match(['put','patch'],'alumnos/{alumno}',[AlumnoController::class,'update'])->name('alumnos.update');
 Route::delete('alumnos/{alumno}',[AlumnoController::class,'destroy'])->name('alumnos.destroy');
-=======
-//Carrera
-Route::get('carreras',[CarreraController::class,'index'])->name('carreras.index');
-Route::get('carreras/create',[CarreraController::class,'create'])->name('carreras.create');
-Route::post('carreras',[CarreraController::class,'store'])->name('carreras.store');
-Route::get('carreras/{carrera}',[CarreraController::class,'show'])->name('carreras.show');
-Route::get('carreras/{carrera}/edit',[CarreraController::class,'edit'])->name('carreras.edit');
-Route::match(['put','patch'],'carreras/{carrera}',[CarreraController::class,'update'])->name('carreras.update');
-Route::delete('carreras/{carrera}',[CarreraController::class,'destroy'])->name('carreras.destroy');
 
->>>>>>> 1336ce72a9c0f1d771475e53790787c89a9c8140
+
+//Empresas//
+Route::get('empresas',[EmpresaController::class,'index'])->name('empresas.index');
+Route::get('empresas/create',[EmpresaController::class,'create'])->name('empresas.create');
+Route::post('empresas',[EmpresaController::class,'store'])->name('empresas.store');
+Route::get('empresas/{empresa}',[EmpresaController::class,'show'])->name('empresas.show');
+Route::get('empresas/{empresa}/edit',[EmpresaController::class,'edit'])->name('empresas.edit');
+Route::match(['put','patch'],'empresas/{empresa}',[EmpresaController::class,'update'])->name('empresas.update');
+Route::delete('empresas/{empresa}',[EmpresaController::class,'destroy'])->name('empresas.destroy');
