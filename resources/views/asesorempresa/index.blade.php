@@ -1,41 +1,42 @@
 @extends('layouts.app')
+@section('title',"Asesores")
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-11">
-            <h1>Empresa</h1>
-
+    <div class="container">
+        <h1>Asesores</h1>
+        <div class="row">
+            <div class="col-11">
+            </div>
+            <div class="col-1">
+                <a class="btn btn-primary" href="{{route('asesorempresas.create')}}">Nuevo</a>
+            </div>
         </div>
-        <div class="col-1">
-            <a class="btn btn-primary" href="{{route('empresas.create')}}">Nuevo</a>
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="col">
-
-          <table class="table table-striped">
-            <tr>
-                <td>ID</td>
-                <td>Nombre</td>
-                <td>Direccion</td>
-                <td>Email</td>
-                <td>Telefono</td>
-                <td></td>
-                <td></td>
-            </tr>
-
-            @foreach ($empresas as $empresa)
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
                         <tr>
-                            <td>{{$empresa->id}}</td>
-                            <td>{{$empresa->nombre}}</td>
-                            <td>{{$empresa->direccion}}</td>
-                            <td>{{$empresa->email}}</td>
-                            <td>{{$empresa->telefono}}</td>
-                            <td><a class="btn btn-success" href="{{route('empresas.edit',['empresa'=>$empresa->id])}}">Modificar</a></td>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>AP. PATERNO</th>
+                            <th>AP. MATERNO</th>
+                            <th>CORREO</th>
+                            <th>TELEFONO</th>
+                            <th>EMPRESA</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    @foreach ($asesores as $asesor)
+                        <tr>
+                            <td>{{$asesor->id}}</td>
+                            <td>{{$asesor->nombre}}</td>
+                            <td>{{$asesor->app}}</td>
+                            <td>{{$asesor->apm}}</td>
+                            <td>{{$asesor->email}}</td>
+                            <td>{{$asesor->telefono}}</td>
+                            <td>{{$asesor->empresa->nombre}}</td>
+                            <td><a class="btn btn-success" href="{{route('asesorempresas.edit',['asesorempresa'=>$asesor->id])}}">Modificar</a></td>
                             <td>
-                                <form id="frm-borrar-{{$empresa->id}}" method="POST"  action="{{route('empresas.destroy',['empresa'=>$empresa->id])}}">
+                                <form id="frm-borrar-{{$asesor->id}}" method="POST"  action="{{route('asesorempresas.destroy',['asesorempresa'=>$asesor->id])}}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit">Eliminar</button>
@@ -43,7 +44,7 @@
                             </td>
                         </tr>
                         <script type="module">
-                            $("#frm-borrar-{{$empresa->id}}").submit(function(e){
+                            $("#frm-borrar-{{$asesor->id}}").submit(function(e){
                             //alert('SUBMIT OK');
                             e.preventDefault();
 
@@ -73,11 +74,10 @@
 
                         });//fin SUBMIT
                         </script>
-                    @endforeach
-</table>
 
+                    @endforeach
+                </table>
+            </div>
         </div>
     </div>
-</div>
-
 @endsection

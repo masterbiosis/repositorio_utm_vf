@@ -10,6 +10,7 @@ use App\Http\Controllers\SubdirectorController;
 use App\Http\Controllers\DirectortesiController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProgramaController;
+use App\Http\Controllers\AsesorempresaController;
 
 
 Route::get('/', function () {
@@ -91,3 +92,12 @@ Route::get('directortesis/{directortesi}/edit',[DirectortesiController::class,'e
 Route::match(['put','patch'],'directortesis/{directortesi}',[DirectortesiController::class,'update'])->name('directortesis.update');
 Route::delete('directortesis/{directortesi}',[DirectortesiController::class,'destroy'])->name('directortesis.destroy');
 //>>>>>>> origin/main
+
+//Asesor Empresa
+Route::get('asesorempresas',[AsesorempresaController::class,'index'])->name('asesorempresas.index');
+Route::get('asesorempresas/create',[AsesorempresaController::class,'create'])->name('asesorempresas.create');
+Route::post('asesorempresas',[AsesorempresaController::class,'store'])->name('asesorempresas.store');
+Route::get('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'show'])->name('asesorempresas.show');
+Route::get('asesorempresas/{asesorempresa}/edit',[AsesorempresaController::class,'edit'])->name('asesorempresas.edit');
+Route::match(['put','patch'],'asesorempresas/{asesorempresa}',[AsesorempresaController::class,'update'])->name('asesorempresas.update');
+Route::delete('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'destroy'])->name('asesorempresas.destroy');
