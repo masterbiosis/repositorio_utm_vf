@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\DirectortesiController;
 use App\Http\Controllers\EmpresaController;
 
 Route::get('/', function () {
@@ -47,3 +48,12 @@ Route::get('empresas/{empresa}',[EmpresaController::class,'show'])->name('empres
 Route::get('empresas/{empresa}/edit',[EmpresaController::class,'edit'])->name('empresas.edit');
 Route::match(['put','patch'],'empresas/{empresa}',[EmpresaController::class,'update'])->name('empresas.update');
 Route::delete('empresas/{empresa}',[EmpresaController::class,'destroy'])->name('empresas.destroy');
+
+//Director de Tesis//
+Route::get('directortesis',[DirectortesiController::class,'index'])->name('directortesis.index');
+Route::get('directortesis/create',[DirectortesiController::class,'create'])->name('directortesis.create');
+Route::post('directortesis',[DirectortesiController::class,'store'])->name('directortesis.store');
+Route::get('directortesis/{directortesi}',[DirectortesiController::class,'show'])->name('directortesis.show');
+Route::get('directortesis/{directortesi}/edit',[DirectortesiController::class,'edit'])->name('directortesis.edit');
+Route::match(['put','patch'],'directortesis/{directortesi}',[DirectortesiController::class,'update'])->name('directortesis.update');
+Route::delete('directortesis/{directortesi}',[DirectortesiController::class,'destroy'])->name('directortesis.destroy');
