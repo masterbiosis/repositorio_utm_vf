@@ -9,6 +9,7 @@ use App\Http\Controllers\SubdirectorController;
 
 use App\Http\Controllers\DirectortesiController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\ProgramaController;
 
 
 Route::get('/', function () {
@@ -51,6 +52,15 @@ Route::get('carreras/{carrera}',[CarreraController::class,'show'])->name('carrer
 Route::get('carreras/{carrera}/edit',[CarreraController::class,'edit'])->name('carreras.edit');
 Route::match(['put','patch'],'carreras/{carrera}',[CarreraController::class,'update'])->name('carreras.update');
 Route::delete('carreras/{carrera}',[CarreraController::class,'destroy'])->name('carreras.destroy');
+
+//Programa educativo//
+Route::get('programas',[ProgramaController::class,'index'])->name('programas.index');
+Route::get('programas/create',[ProgramaController::class,'create'])->name('programas.create');
+Route::post('programas',[ProgramaController::class,'store'])->name('programas.store');
+Route::get('programas/{programa}',[ProgramaController::class,'show'])->name('programas.show');
+Route::get('programas/{programa}/edit',[ProgramaController::class,'edit'])->name('programas.edit');
+Route::match(['put','patch'],'programas/{programa}',[ProgramaController::class,'update'])->name('programas.update');
+Route::delete('programas/{programa}',[ProgramaController::class,'destroy'])->name('programas.destroy');
 
 //<<<<<<< HEAD
 //Subdirector
