@@ -4,12 +4,12 @@ use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CarreraController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\SubdirectorController;
-=======
+
 use App\Http\Controllers\DirectortesiController;
 use App\Http\Controllers\EmpresaController;
->>>>>>> origin/main
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,7 +43,16 @@ Route::get('alumnos/{alumno}/edit',[AlumnoController::class,'edit'])->name('alum
 Route::match(['put','patch'],'alumnos/{alumno}',[AlumnoController::class,'update'])->name('alumnos.update');
 Route::delete('alumnos/{alumno}',[AlumnoController::class,'destroy'])->name('alumnos.destroy');
 
-<<<<<<< HEAD
+//Carrera//
+Route::get('carreras',[CarreraController::class,'index'])->name('carreras.index');
+Route::get('carreras/create',[CarreraController::class,'create'])->name('carreras.create');
+Route::post('carreras',[CarreraController::class,'store'])->name('carreras.store');
+Route::get('carreras/{carrera}',[CarreraController::class,'show'])->name('carreras.show');
+Route::get('carreras/{carrera}/edit',[CarreraController::class,'edit'])->name('carreras.edit');
+Route::match(['put','patch'],'carreras/{carrera}',[CarreraController::class,'update'])->name('carreras.update');
+Route::delete('carreras/{carrera}',[CarreraController::class,'destroy'])->name('carreras.destroy');
+
+//<<<<<<< HEAD
 //Subdirector
 Route::get('subdirectors',[SubdirectorController::class,'index'])->name('subdirectors.index');
 Route::get('subdirectors/create',[SubdirectorController::class,'create'])->name('subdirectors.create');
@@ -52,7 +61,7 @@ Route::get('subdirectors/{subdirector}',[SubdirectorController::class,'show'])->
 Route::get('subdirectors/{subdirector}/edit',[SubdirectorController::class,'edit'])->name('subdirectors.edit');
 Route::match(['put','patch'],'subdirectors/{subdirector}',[SubdirectorController::class,'update'])->name('subdirectors.update');
 Route::delete('directors/{subdirector}',[SubdirectorController::class,'destroy'])->name('subdirectors.destroy');
-=======
+
 
 //Empresas//
 Route::get('empresas',[EmpresaController::class,'index'])->name('empresas.index');
@@ -71,4 +80,4 @@ Route::get('directortesis/{directortesi}',[DirectortesiController::class,'show']
 Route::get('directortesis/{directortesi}/edit',[DirectortesiController::class,'edit'])->name('directortesis.edit');
 Route::match(['put','patch'],'directortesis/{directortesi}',[DirectortesiController::class,'update'])->name('directortesis.update');
 Route::delete('directortesis/{directortesi}',[DirectortesiController::class,'destroy'])->name('directortesis.destroy');
->>>>>>> origin/main
+//>>>>>>> origin/main

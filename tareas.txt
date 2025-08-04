@@ -2,15 +2,15 @@ Tareas:
 
 #Carrera
 
-Subdirector //Julio
+#Subdirector
 
-Programa
+Programa //Julio
 
 #Empresa
 
 Asesorempresa
 
-#Alumno 
+#Alumno
 
 Directortesi
 
