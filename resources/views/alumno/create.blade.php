@@ -11,7 +11,7 @@
     Agregar Director de Carrera
   </div>
   <div class="card-body">
-    
+
       <form method="POST" action="{{route('alumnos.store')}}">
         @csrf
         <div class="mb-3">
@@ -39,10 +39,10 @@
                   <input required name="telefono" type="text" class="form-control" id="telefono" aria-describedby="telefono">
                     </div>
                     <div class="mb-3">
-               <label for="password" class="form-label">Contraseña</label>
-                  <input required name="password" type="text" class="form-control" id="password" aria-describedby="password">
+               <label for="password" class="form-label" >Contraseña</label>
+                  <input required name="password" type="password" class="form-control" id="password" aria-describedby="password">
                </div>
-                    
+
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
   </div>

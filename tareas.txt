@@ -1,16 +1,16 @@
 Tareas:
 
-#Carrera
+#Carrera OK
 
-#Subdirector
+#Subdirector OK
 
-#Programa
+#Programa OK
 
-#Empresa
+#Empresa OK
 
-Asesorempresa //Julio
+#Asesorempresa OK
 
-#Alumno
+#Alumno OK
 
 Directortesi
 
