@@ -4,11 +4,11 @@ Tareas:
 
 #Subdirector
 
-#Programa //Julio
+#Programa
 
 #Empresa
 
-Asesorempresa
+Asesorempresa //Julio
 
 #Alumno
 
