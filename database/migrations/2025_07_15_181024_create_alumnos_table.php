@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('apellidom');
             $table->string('email');
             $table->string('telefono');
-            $table->string('password');
             $table->timestamps();
         });
     }
