@@ -11,6 +11,7 @@ use App\Http\Controllers\DirectortesiController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\AsesorempresaController;
+use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\LineaController;
 
 Route::get('/', function () {
@@ -119,3 +120,12 @@ Route::get('lineas/{linea}',[LineaController::class,'show'])->name('lineas.show'
 Route::get('lineas/{linea}/edit',[LineaController::class,'edit'])->name('lineas.edit');
 Route::match(['put','patch'],'lineas/{linea}',[LineaController::class,'update'])->name('lineas.update');
 Route::delete('lineas/{linea}',[LineaController::class,'destroy'])->name('lineas.destroy');
+
+//DOCUMENTOS//
+Route::get('documentos',[DocumentoController::class,'index'])->name('documentos.index');
+Route::get('documentos/create',[DocumentoController::class,'create'])->name('documentos.create');
+Route::post('documentos',[DocumentoController::class,'store'])->name('documentos.store');
+Route::get('documentos/{documento}',[DocumentoController::class,'show'])->name('documentos.show');
+Route::get('documentos/{documento}/edit',[DocumentoController::class,'edit'])->name('documentos.edit');
+Route::match(['put','patch'],'documentos/{documento}',[DocumentoController::class,'update'])->name('documentos.update');
+Route::delete('documentos/{documento}',[DocumentoController::class,'destroy'])->name('documentos.destroy');
