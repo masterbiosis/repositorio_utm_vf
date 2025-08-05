@@ -2,7 +2,7 @@ Tareas:
 
 Carrera //Julio
 
-Subdirector
+#Subdirector
 
 Programa
 

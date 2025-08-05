@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\DirectortesiController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\SubdirectorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,3 +58,12 @@ Route::get('directortesis/{directortesi}',[DirectortesiController::class,'show']
 Route::get('directortesis/{directortesi}/edit',[DirectortesiController::class,'edit'])->name('directortesis.edit');
 Route::match(['put','patch'],'directortesis/{directortesi}',[DirectortesiController::class,'update'])->name('directortesis.update');
 Route::delete('directortesis/{directortesi}',[DirectortesiController::class,'destroy'])->name('directortesis.destroy');
+
+//Director de Carrera//
+Route::get('directorcarreras',[SubdirectorController::class,'index'])->name('directorcarreras.index');
+Route::get('directorcarreras/create',[SubdirectorController::class,'create'])->name('directorcarreras.create');
+Route::post('directorcarreras',[SubdirectorController::class,'store'])->name('directorcarreras.store');
+Route::get('directorcarreras/{directorcarrera}',[SubdirectorController::class,'show'])->name('directorcarreras.show');
+Route::get('directorcarreras/{directorcarrera}/edit',[SubdirectorController::class,'edit'])->name('directorcarreras.edit');
+Route::match(['put','patch'],'directorcarreras/{directorcarrera}',[SubdirectorController::class,'update'])->name('directorcarreras.update');
+Route::delete('directorcarreras/{directorcarrera}',[SubdirectorController::class,'destroy'])->name('directorcarreras.destroy');
