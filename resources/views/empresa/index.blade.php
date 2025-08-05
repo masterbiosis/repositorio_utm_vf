@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-11">
-            <h1>Carrera</h1>
+            <h1>Empresa</h1>
 
         </div>
         <div class="col-1">
@@ -14,7 +14,7 @@
     </div>
     <div class="row">
         <div class="col">
-            
+
           <table class="table table-striped">
             <tr>
                 <td>ID</td>
@@ -25,7 +25,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            
+
             @foreach ($empresas as $empresa)
                         <tr>
                             <td>{{$empresa->id}}</td>
@@ -50,7 +50,7 @@
                             //////////////////////////////auth
                             Swal.fire({
                                 title: "Estas seguro?",
-                                text: "No se podra revertir!",
+                                text: "No se podrá revertir!",
                                 icon: "warning",
                                 showCancelButton: true,
                                 confirmButtonColor: "#3085d6",

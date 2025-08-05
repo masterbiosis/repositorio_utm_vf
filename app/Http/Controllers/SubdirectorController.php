@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subdirector;
 use App\Http\Requests\StoreSubdirectorRequest;
 use App\Http\Requests\UpdateSubdirectorRequest;
+use App\Models\Subdirector;
 use App\Models\Carrera;
 
 class SubdirectorController extends Controller
@@ -14,11 +14,10 @@ class SubdirectorController extends Controller
      */
     public function index()
     {
-        $subdirectors=Subdirector::all();
+        $subdirectores = Subdirector::all();
         return view('subdirector.index',[
-            'subdirectors'=>$subdirectors
+            'subdirectors'=>$subdirectores
         ]);
-    
     }
 
     /**
@@ -26,9 +25,10 @@ class SubdirectorController extends Controller
      */
     public function create()
     {
-        $carreras=Carrera::all();
-         return view('subdirector.create',
-        ['carreras'=>$carreras]);
+        $carreras = Carrera::all();
+        return view('subdirector.create',[
+            'carreras'=>$carreras
+        ]);
     }
 
     /**
@@ -36,9 +36,9 @@ class SubdirectorController extends Controller
      */
     public function store(StoreSubdirectorRequest $request)
     {
-        $subdirector=Subdirector::create(request()->all());
-        session()->flash('success',"El Director de Carrera fue dado de alta exitosamente.");
-        return redirect()->route('subdirector.index');
+        $director = Subdirector::create(request()->all());
+        session()->flash('success',"El subdirector de carrera fue dado de alta exitosamente.");
+        return redirect()->route('subdirectors.index');
     }
 
     /**
@@ -54,12 +54,11 @@ class SubdirectorController extends Controller
      */
     public function edit(Subdirector $subdirector)
     {
-        $carreras=Carrera::all();
+        $carreras = Carrera::all();
         return view('subdirector.edit',[
             'subdirector'=>$subdirector,
             'carreras'=>$carreras
-        ]
-    );
+        ]);
     }
 
     /**
@@ -67,9 +66,9 @@ class SubdirectorController extends Controller
      */
     public function update(UpdateSubdirectorRequest $request, Subdirector $subdirector)
     {
-         $subdirector->update(request()->all());
-            session()->flash('success',"EL director de Carrera fue modificado exitosamente.");
-        return redirect()->route('subdirctor.index');
+        $subdirector->update(request()->all());
+        session()->flash('success',"El subdirector de carrera fue modificada de manera correcta.");
+        return redirect()->route('subdirectors.index');
     }
 
     /**
@@ -78,7 +77,7 @@ class SubdirectorController extends Controller
     public function destroy(Subdirector $subdirector)
     {
         $subdirector->delete();
-        session()->flash('success',"El director  {$subdirector->nombre}, fue borrado exitosamente.");
-        return redirect()->route('subdirector.index');
+        session()->flash('success',"El director: {$subdirector->nombre} {$subdirector->app} {$subdirector->apm} fue borrada de manera correcta.");
+        return redirect()->route('subdirectors.index');
     }
 }

@@ -1,44 +1,33 @@
 @extends('layouts.app')
-@section('title','Alumno')
 @section('content')
 
     <div class="container">
-        <h1>Alumnos</h1>
+        <h1>Programas Educativos</h1>
         <div class="row">
             <div class="col-11">
             </div>
             <div class="col-1">
-                <a class="btn btn-primary" href="{{route('alumnos.create')}}">Nuevo</a>
+                <a class="btn btn-primary" href="{{route('programas.create')}}">Nuevo</a>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <table class="table table-striped">
                         <tr>
-                            <th>ID</th>
-                            <th>MATRICULA</th>
-                            <th>NOMBRE</th>
-                            <th>AP. PATERNO</th>
-                            <th>AP. MATERNO</th>
-                            <th>CORREO</th>
-                            <th>TELEFONO</th>
-                            <th>CONTRASEÑA</th>
-                            <th></th>
-                            <th></th>
+                            <td>ID</td>
+                            <td>NOMBRE</td>
+                            <th>CARRERA</th>
+                            <td></td>
+                            <td></td>
                         </tr>
-                    @foreach ($alumnos as $alumno)
+                    @foreach ($programas as $programa)
                         <tr>
-                            <td>{{$alumno->id}}</td>
-                            <td>{{$alumno->matricula}}</td>
-                            <td>{{$alumno->nombre}}</td>
-                            <td>{{$alumno->apellidop}}</td>
-                            <td>{{$alumno->apellidom}}</td>
-                            <td>{{$alumno->email}}</td>
-                            <td>{{$alumno->telefono}}</td>
-                            <td>{{$alumno->password}}</td>
-                            <td><a class="btn btn-success" href="{{route('alumnos.edit',['alumno'=>$alumno->id])}}">Modificar</a></td>
+                            <td>{{$programa->id}}</td>
+                            <td>{{$programa->nombre}}</td>
+                            <td>{{$programa->carrera->nombre}}</td>
+                            <td><a class="btn btn-success" href="{{route('programas.edit',['programa'=>$programa->id])}}">Modificar</a></td>
                             <td>
-                                <form id="frm-borrar-{{$alumno->id}}" method="POST"  action="{{route('alumnos.destroy',['alumno'=>$alumno->id])}}">
+                                <form id="frm-borrar-{{$programa->id}}" method="POST"  action="{{route('programas.destroy',['programa'=>$programa->id])}}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit">Eliminar</button>
@@ -46,14 +35,14 @@
                             </td>
                         </tr>
                         <script type="module">
-                            $("#frm-borrar-{{$alumno->id}}").submit(function(e){
+                            $("#frm-borrar-{{$programa->id}}").submit(function(e){
                             //alert('SUBMIT OK');
                             e.preventDefault();
 
                             //////////////////////////////auth
                             Swal.fire({
                                 title: "Estas seguro?",
-                                text: "No se podra revertir!",
+                                text: "No se podrá revertir!",
                                 icon: "warning",
                                 showCancelButton: true,
                                 confirmButtonColor: "#3085d6",

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Subdirector>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Asesorempresa>
  */
-class SubdirectorFactory extends Factory
+class AsesorempresaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,8 @@ class SubdirectorFactory extends Factory
     {
         return [
             'nombre'=>$this->faker->name(),
-            'app'=>$this->faker->randomElement(["Perez","Sosa","Torres","Martínez","Benítez","Morales"]),
-            'apm'=>$this->faker->randomElement(["Perez","Sosa","Torres",""]),
+            'app'=>$this->faker->randomElement(["Perez","Sosa","Torres"]),
+            'apm'=>$this->faker->randomElement(["Martinez","Juarez","Santana","Rivera"]),
             'email' => $this->faker->unique()->safeEmail(),
             'telefono'=>$this->faker->tollFreePhoneNumber(),
         ];

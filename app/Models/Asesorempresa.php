@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subdirector extends Model
+class Asesorempresa extends Model
 {
-    /** @use HasFactory<\Database\Factories\SubdirectorFactory> */
+    /** @use HasFactory<\Database\Factories\AsesorempresaFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -16,13 +16,11 @@ class Subdirector extends Model
         'apm',
         'email',
         'telefono',
-        'carrera_id'
+        'empresa_id'
     ];
 
-    public function carrera(){
-        //El director pertenece a una carrera
-        return $this->belongsTo(Carrera::class);
+    public function empresa(){
+        //El asesor pertenece a una empresa
+        return $this->belongsTo(Empresa::class, 'empresa_id');
     }
-
-
 }

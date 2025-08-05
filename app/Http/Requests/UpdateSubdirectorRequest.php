@@ -11,7 +11,11 @@ class UpdateSubdirectorRequest extends FormRequest
      */
     public function authorize(): bool
     {
+<<<<<<< HEAD
         return false;
+=======
+        return true;
+>>>>>>> 10f31b32cf37ac4c5755c7352120f528d6ea4f26
     }
 
     /**

@@ -1,23 +1,23 @@
 Tareas:
 
-Carrera //Julio
+#Carrera OK
 
-#Subdirector
+#Subdirector OK
 
-Programa
+#Programa OK
 
-#Empresa
+#Empresa OK
 
-Asesorempresa
+#Asesorempresa OK
 
-#Alumno 
+#Alumno OK
 
-Directortesi
+#Directortesio OK
 
 Documento
 
 DocumentoLinea
 
-Linea
+Linea//manuel
 
 #Layout
