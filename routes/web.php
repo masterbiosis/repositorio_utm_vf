@@ -11,7 +11,7 @@ use App\Http\Controllers\DirectortesiController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\AsesorempresaController;
-
+use App\Http\Controllers\LineaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -110,3 +110,12 @@ Route::get('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'sho
 Route::get('asesorempresas/{asesorempresa}/edit',[AsesorempresaController::class,'edit'])->name('asesorempresas.edit');
 Route::match(['put','patch'],'asesorempresas/{asesorempresa}',[AsesorempresaController::class,'update'])->name('asesorempresas.update');
 Route::delete('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'destroy'])->name('asesorempresas.destroy');
+
+//Lineas//
+Route::get('lineas',[LineaController::class,'index'])->name('lineas.index');
+Route::get('lineas/create',[LineaController::class,'create'])->name('lineas.create');
+Route::post('lineas',[LineaController::class,'store'])->name('lineas.store');
+Route::get('lineas/{linea}',[LineaController::class,'show'])->name('lineas.show');
+Route::get('lineas/{linea}/edit',[LineaController::class,'edit'])->name('lineas.edit');
+Route::match(['put','patch'],'lineas/{linea}',[LineaController::class,'update'])->name('lineas.update');
+Route::delete('lineas/{linea}',[LineaController::class,'destroy'])->name('lineas.destroy');

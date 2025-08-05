@@ -12,12 +12,12 @@ Tareas:
 
 #Alumno OK
 
-#Directortesio OK
+#Directortesio 
 
 Documento
 
 DocumentoLinea
 
-Linea//manuel
+#Linea
 
 #Layout
