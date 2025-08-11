@@ -17,18 +17,18 @@ return new class extends Migration
             $table->string('introduccion');
             $table->string('resumen');
             $table->string('fecha_presentacion');
-             $table->string('archivo_pdf')->nullable(); 
+             $table->string('archivo_pdf')->nullable();
             $table->bigInteger('alumno_id')->unsigned();
             $table->bigInteger('asesorempresa_id')->unsigned();
             $table->bigInteger('programa_id')->unsigned();
-            $table->bigInteger('director_tesi_id')->unsigned();
+            $table->bigInteger('directortesis_id')->unsigned();
             $table->timestamps();
 
 
             $table->foreign('alumno_id')->references('id')->on('alumnos');
-            $table->foreign('asesor_id')->references('id')->on('asesorempresas');
+            $table->foreign('asesorempresa_id')->references('id')->on('asesorempresas');
             $table->foreign('programa_id')->references('id')->on('programas');
-            $table->foreign('director_tesi_id')->references('id')->on('director_tesis');
+            $table->foreign('directortesis_id')->references('id')->on('directortesis');
         });
     }
 
