@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,10 @@ Route::get('/js', function () {
 Route::get('/sweet', function () {
     return view('test.sweet');
 });
+
+//Admin
+Route::get('/asignar',[AdminController::class,'asignar'])->name('admin.asignar');
+Route::post('/asignardata',[AdminController::class,'asignardata'])->name('admin.asignardata');
 
 
 //Alumnos//

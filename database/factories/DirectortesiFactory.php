@@ -17,7 +17,11 @@ class DirectortesiFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre'=>$this->faker->name(),
+            'apellidop'=>$this->faker->randomElement(["Cruz ","Ramírez","Sánchez","Rodríguez","González","López","Martínez","García","Hernández","Perez","Sosa","Torres","Martínez","Benítez","Morales"]),
+            'apellidom'=>$this->faker->randomElement(["Cruz ","Ramírez","Sánchez","Rodríguez","González","López","Martínez","García","Hernández","Perez","Sosa","Torres","Martínez","Benítez","Morales"]),
+            'telefono'=>$this->faker->tollFreePhoneNumber(),
+            'email' => $this->faker->unique()->safeEmail(),
         ];
     }
 }

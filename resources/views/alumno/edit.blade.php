@@ -11,7 +11,7 @@
     Agregar Director de Carrera
   </div>
   <div class="card-body">
-    
+
       <form method="POST" action="{{route('alumnos.update',['alumno'=>$alumno->id])}}">
         @method('PUT')
         @csrf
@@ -39,11 +39,8 @@
                  <label for="telefono" class="form-label">Telefono</label>
                   <input required name="telefono" type="text" class="form-control" id="telefono" aria-describedby="telefono" value="{{$alumno->telefono}}">
                     </div>
-                    <div class="mb-3">
-               <label for="password" class="form-label">Contraseña</label>
-                  <input required name="password" type="text" class="form-control" id="password" aria-describedby="password" value="{{$alumno->password}}">
-               </div>
-                    
+
+
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
   </div>
