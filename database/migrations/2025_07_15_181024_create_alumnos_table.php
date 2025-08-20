@@ -19,7 +19,12 @@ return new class extends Migration
             $table->string('apellidom');
             $table->string('email');
             $table->string('telefono');
+            $table->bigInteger('directortesi_id')->unsigned()->default(1);
             $table->timestamps();
+
+
+            $table->foreign('directortesi_id')->references('id')->on('directortesis');
+            //$table->foreign('empresa_id')->references('id')->on('empresas');
         });
     }
 

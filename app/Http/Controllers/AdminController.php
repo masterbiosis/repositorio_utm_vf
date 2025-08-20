@@ -31,9 +31,16 @@ class AdminController extends Controller
         var_dump($request->directortesi);
         var_dump($request->estudiante);
         //var_dump($request->alumno);
-        foreach($request as $alumno){
-          // var_dump($alumno);
-           //$alumno->nombre;
+        //$affectedRows = Post::where("id", 3)->update(["title" => "Updated title"]);
+        //Alumno::where('id',$request->estudiante)->update(["directortesi_id"=>$request->directortesi]);
+        if(count($request->estudiante) > 0){
+            foreach($request->estudiante as $estudiante){
+              // var_dump($alumno);
+               //$alumno->nombre;
+
+               echo $estudiante;
+               Alumno::where('id',$estudiante)->update(["directortesi_id"=>$request->directortesi]);
+            }
         }
 
         dd('Se esta procesando la asignacion de alumnos al director de tesis.');
