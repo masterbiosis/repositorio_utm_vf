@@ -6,6 +6,8 @@ use App\Models\Directortesi;
 use App\Http\Requests\StoreDirectortesiRequest;
 use App\Http\Requests\UpdateDirectortesiRequest;
 
+use App\Models\Alumno;
+
 class DirectortesiController extends Controller
 {
     /**
@@ -69,9 +71,17 @@ class DirectortesiController extends Controller
      */
     public function destroy(Directortesi $directortesi)
     {
-        
+
         $directortesi->delete();
         session()->flash('success',"El director  {$directortesi->nombre}, fue borrado exitosamente.");
         return redirect()->route('directortesis.index');
+    }
+
+    public function alumnosAsignados(Directortesi $directortesi){
+        $alumnos = Alumno::where('directortesi_id',$directortesi->id)->get();
+
+        return view( 'directortesi.asignados',[
+            'alumnos'=>$alumnos
+        ]);
     }
 }

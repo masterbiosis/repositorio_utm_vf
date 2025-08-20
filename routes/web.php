@@ -97,6 +97,8 @@ Route::get('directortesis/{directortesi}',[DirectortesiController::class,'show']
 Route::get('directortesis/{directortesi}/edit',[DirectortesiController::class,'edit'])->name('directortesis.edit');
 Route::match(['put','patch'],'directortesis/{directortesi}',[DirectortesiController::class,'update'])->name('directortesis.update');
 Route::delete('directortesis/{directortesi}',[DirectortesiController::class,'destroy'])->name('directortesis.destroy');
+//Ver estudianteas asignados
+Route::get('directortesis/{directortesi}/asignados',[DirectortesiController::class,'alumnosAsignados'])->name('directortesis.asignados');
 
 //Director de Carrera//
 Route::get('directorcarreras',[SubdirectorController::class,'index'])->name('directorcarreras.index');
