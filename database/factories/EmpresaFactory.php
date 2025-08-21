@@ -21,3 +21,10 @@ class EmpresaFactory extends Factory
         ];
     }
 }
+
+/*
+'nombre',
+        'direccion',
+        'telefono',
+        'email'
+*/

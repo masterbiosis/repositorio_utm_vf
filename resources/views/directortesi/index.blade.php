@@ -20,74 +20,76 @@
     </div>
     <div class="row">
         <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <table id="directortesi" class="table table-striped">
+                      <thead>
+                          <tr>
+                              <td>ID</td>
+                              <td>Nombre</td>
+                              <td>Apellido Paterno</td>
+                              <td>Apellido Materno</td>
+                              <td>Email</td>
+                              <td>Telefono</td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                      </thead>
+                      <tbody>
 
-          <table id="directortesi" class="table table-striped">
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Nombre</td>
-                    <td>Apellido Paterno</td>
-                    <td>Apellido Materno</td>
-                    <td>Email</td>
-                    <td>Telefono</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
+                      @foreach ( $directortesis as $directortesi)
+                      <tr>
+                          <td>{{$directortesi->id}}</td>
+                          <td>{{$directortesi->nombre}}</td>
+                          <td>{{$directortesi->apellidop}}</td>
+                          <td>{{$directortesi->apellidom}}</td>
+                          <td>{{$directortesi->email}}</td>
+                          <td>{{$directortesi->telefono}}</td>
+                          <td><a class="btn btn-success" href="{{route('directortesis.edit',['directortesi'=>$directortesi->id])}}">Modificar</a></td>
+                          <td>
+                          <form id="frm-borrar-{{$directortesi->id}}" method="POST" action="{{route('directortesis.destroy',['directortesi'=>$directortesi->id])}}">
+                          @csrf
+                          @method('DELETE')
+                          <button class="btn btn-danger" type="submit">Eliminar</button>
+                          </form>
+                          </td>
+                      </tr>
+                      <script type="module">
+                                      $("#frm-borrar-{{$directortesi->id}}").submit(function(e){
+                                      //alert('SUBMIT OK');
+                                      e.preventDefault();
 
-            @foreach ( $directortesis as $directortesi)
-            <tr>
-                <td>{{$directortesi->id}}</td>
-                <td>{{$directortesi->nombre}}</td>
-                <td>{{$directortesi->apellidop}}</td>
-                <td>{{$directortesi->apellidom}}</td>
-                <td>{{$directortesi->email}}</td>
-                <td>{{$directortesi->telefono}}</td>
-                <td><a class="btn btn-success" href="{{route('directortesis.edit',['directortesi'=>$directortesi->id])}}">Modificar</a></td>
-                <td>
-                <form id="frm-borrar-{{$directortesi->id}}" method="POST" action="{{route('directortesis.destroy',['directortesi'=>$directortesi->id])}}">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Eliminar</button>
-                </form>
-                </td>
-            </tr>
-            <script type="module">
-                            $("#frm-borrar-{{$directortesi->id}}").submit(function(e){
-                            //alert('SUBMIT OK');
-                            e.preventDefault();
+                                      //////////////////////////////auth
+                                      Swal.fire({
+                                          title: "Estas seguro?",
+                                          text: "No se podra revertir!",
+                                          icon: "warning",
+                                          showCancelButton: true,
+                                          confirmButtonColor: "#3085d6",
+                                          cancelButtonColor: "#d33",
+                                          confirmButtonText: "Si, borrar!"
+                                          }).then((result) => {
+                                          if (result.isConfirmed) {
+                                              /*
+                                              Swal.fire({
+                                              title: "Deleted!",
+                                              text: "Your file has been deleted.",
+                                              icon: "success"
+                                              });
+                                              */
+                                             this.submit();
+                                          }
+                                      });
 
-                            //////////////////////////////auth
-                            Swal.fire({
-                                title: "Estas seguro?",
-                                text: "No se podra revertir!",
-                                icon: "warning",
-                                showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Si, borrar!"
-                                }).then((result) => {
-                                if (result.isConfirmed) {
-                                    /*
-                                    Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Your file has been deleted.",
-                                    icon: "success"
-                                    });
-                                    */
-                                   this.submit();
-                                }
-                            });
+                                      /////////////////////////////auth
 
-                            /////////////////////////////auth
-
-                        });//fin SUBMIT
-                        </script>
-            @endforeach
-            </tbody>
-</table>
-
+                                  });//fin SUBMIT
+                                  </script>
+                      @endforeach
+                      </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

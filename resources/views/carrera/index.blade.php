@@ -18,66 +18,70 @@
         </div>
         <div class="row">
             <div class="col">
-                <table id="carreratbl" class="table table-striped">
-                    <thead>
-                        <tr>
-                            <td>ID</td>
-                            <td>NOMBRE</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($carreras as $carrera)
-                        <tr>
-                            <td>{{$carrera->id}}</td>
-                            <td>{{$carrera->nombre}}</td>
-                            <td><a class="btn btn-success" href="{{route('carreras.edit',['carrera'=>$carrera->id])}}">Modificar</a></td>
-                            <td>
-                                <form id="frm-borrar-{{$carrera->id}}" method="POST"  action="{{route('carreras.destroy',['carrera'=>$carrera->id])}}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">Eliminar</button>
-                                </form>
+                <div class="card">
+                    <div class="card-body">
+                        <table id="carreratbl" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>NOMBRE</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($carreras as $carrera)
+                                <tr>
+                                    <td>{{$carrera->id}}</td>
+                                    <td>{{$carrera->nombre}}</td>
+                                    <td><a class="btn btn-success" href="{{route('carreras.edit',['carrera'=>$carrera->id])}}">Modificar</a></td>
+                                    <td>
+                                        <form id="frm-borrar-{{$carrera->id}}" method="POST"  action="{{route('carreras.destroy',['carrera'=>$carrera->id])}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                                        </form>
 
 
-                            </td>
+                                    </td>
 
-                            <script type="module">
-                                $("#frm-borrar-{{$carrera->id}}").submit(function(e){
-                                //alert('SUBMIT OK');
-                                e.preventDefault();
+                                    <script type="module">
+                                        $("#frm-borrar-{{$carrera->id}}").submit(function(e){
+                                        //alert('SUBMIT OK');
+                                        e.preventDefault();
 
-                                //////////////////////////////auth
-                                Swal.fire({
-                                        title: "¿Estás seguro?",
-                                        text: "¡No prodrás revertir el proceso!",
-                                        icon: "warning",
-                                        showCancelButton: true,
-                                        confirmButtonColor: "#3085d6",
-                                        cancelButtonColor: "#d33",
-                                        confirmButtonText: "¡Sí, borrar!"
-                                    }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        /*
+                                        //////////////////////////////auth
                                         Swal.fire({
-                                        title: "Deleted!",
-                                        text: "Your file has been deleted.",
-                                        icon: "success"
+                                                title: "¿Estás seguro?",
+                                                text: "¡No prodrás revertir el proceso!",
+                                                icon: "warning",
+                                                showCancelButton: true,
+                                                confirmButtonColor: "#3085d6",
+                                                cancelButtonColor: "#d33",
+                                                confirmButtonText: "¡Sí, borrar!"
+                                            }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                /*
+                                                Swal.fire({
+                                                title: "Deleted!",
+                                                text: "Your file has been deleted.",
+                                                icon: "success"
+                                                });
+                                                */
+                                            this.submit();
+                                            }
                                         });
-                                        */
-                                    this.submit();
-                                    }
-                                });
 
-                                /////////////////////////////auth
+                                        /////////////////////////////auth
 
-                            });//fin SUBMIT
-                            </script>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                                    });//fin SUBMIT
+                                    </script>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
