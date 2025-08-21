@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-11">
-            <h1>Direcotr de Tesis</h1>
+            <h1>Director de Tesis</h1>
 
         </div>
         <div class="col-1">
