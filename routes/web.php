@@ -69,14 +69,7 @@ Route::get('directortesis/{directortesi}/asignados',[DirectortesiController::cla
 Route::resource('directorcarreras', SubdirectorController::class);
 
 //Asesor Empresa
-//Route::resource('asesorempresas', Asesorempresa::class);
-Route::get('asesorempresas',[AsesorempresaController::class,'index'])->name('asesorempresas.index');
-Route::get('asesorempresas/create',[AsesorempresaController::class,'create'])->name('asesorempresas.create');
-Route::post('asesorempresas',[AsesorempresaController::class,'store'])->name('asesorempresas.store');
-Route::get('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'show'])->name('asesorempresas.show');
-Route::get('asesorempresas/{asesorempresa}/edit',[AsesorempresaController::class,'edit'])->name('asesorempresas.edit');
-Route::match(['put','patch'],'asesorempresas/{asesorempresa}',[AsesorempresaController::class,'update'])->name('asesorempresas.update');
-Route::delete('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'destroy'])->name('asesorempresas.destroy');
+Route::resource('asesorempresas', AsesorempresaController::class);
 
 //Lineas//
 Route::resource('lineas', LineaController::class);
@@ -84,6 +77,16 @@ Route::resource('lineas', LineaController::class);
 //DOCUMENTOS//
 Route::resource('documentos', DocumentoController::class);
 
+
+/*
+Route::get('asesorempresas',[AsesorempresaController::class,'index'])->name('asesorempresas.index');
+Route::get('asesorempresas/create',[AsesorempresaController::class,'create'])->name('asesorempresas.create');
+Route::post('asesorempresas',[AsesorempresaController::class,'store'])->name('asesorempresas.store');
+Route::get('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'show'])->name('asesorempresas.show');
+Route::get('asesorempresas/{asesorempresa}/edit',[AsesorempresaController::class,'edit'])->name('asesorempresas.edit');
+Route::match(['put','patch'],'asesorempresas/{asesorempresa}',[AsesorempresaController::class,'update'])->name('asesorempresas.update');
+Route::delete('asesorempresas/{asesorempresa}',[AsesorempresaController::class,'destroy'])->name('asesorempresas.destroy');
+*/
 
 /*
 Route::get('alumnos',[AlumnoController::class,'index'])->name('alumnos.index');
