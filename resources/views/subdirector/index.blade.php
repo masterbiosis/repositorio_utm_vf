@@ -21,6 +21,7 @@
                 <div class="card">
                     <div class="card-body">
                         <table id="subdirecctortbl" class="table table-striped">
+                            <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>NOMBRE</th>
@@ -32,6 +33,8 @@
                                     <th></th>
                                     <th></th>
                                 </tr>
+                            </thead>
+                            <tbody>
                             @foreach ($subdirectors as $subdirector)
                                 <tr>
                                     <td>{{$subdirector->id}}</td>
@@ -82,6 +85,7 @@
                                     </script>
                                 </tr>
                             @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -99,7 +103,7 @@
     <script src="https://cdn.datatables.net/responsive/3.0.6/js/responsive.bootstrap5.js"></script>
 
     <script>
-         new DataTable('#subdirectortbl',{
+         new DataTable('#subdirecctortbl',{
             responsive: true,
             language: {
                 "decimal": "",
