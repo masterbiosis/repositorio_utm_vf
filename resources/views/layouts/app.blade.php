@@ -37,7 +37,7 @@
                                 <!-- Left Side Of Navbar -->
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="nav-link {{(request()->is('alumnos') or request()->is('asignar')) ? 'active':''}} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Alumnos
                                         </a>
                                         <ul class="dropdown-menu">
@@ -45,34 +45,30 @@
                                             <li><a class="dropdown-item" href="{{route('admin.asignar')}}">Asignar Director de Tesis</a></li>
                                         </ul>
                                     </li>
-
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="{{ route('alumnos.index') }}">Alumnos</a>
+                                        <a class="nav-link {{request()->is('asesorempresas') ? 'active':''}}" href="{{ route('asesorempresas.index') }}">Asesor Empresarial</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('asesorempresas.index') }}">Asesor Empresarial</a>
+                                        <a class="nav-link {{request()->is('carreras') ? 'active':''}}" href="{{ route('carreras.index') }}">Carreras</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('carreras.index') }}">Carreras</a>
+                                        <a class="nav-link {{request()->is('subdirectors') ? 'active':''}}" href="{{ route('subdirectors.index') }}">Subdirectores</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('subdirectors.index') }}">Subdirectores</a>
+                                        <a class="nav-link {{request()->is('documentos') ? 'active':''}}" href="{{ route('documentos.index') }}">Tesis/Tesinas</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('documentos.index') }}">Tesis/Tesinas</a>
+                                        <a class="nav-link {{request()->is('empresas') ? 'active':''}}" href="{{ route('empresas.index') }}">Empresas</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('empresas.index') }}">Empresas</a>
+                                        <a class="nav-link {{request()->is('lineas') ? 'active':''}}" href="{{ route('lineas.index') }}">Líneas de Investigación</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('lineas.index') }}">Líneas de Investigación</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('directortesis.index') }}">Director de Tesis</a>
+                                        <a class="nav-link {{request()->is('directortesis') ? 'active':''}}" href="{{ route('directortesis.index') }}">Director de Tesis</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('programas.index') }}">Programa Educativo</a>
+                                        <a class="nav-link {{request()->is('programas') ? 'active':''}}" href="{{ route('programas.index') }}">Programa Educativo</a>
                                     </li>
                                 </ul>
 
