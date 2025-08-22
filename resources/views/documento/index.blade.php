@@ -7,7 +7,7 @@
 @section('title', 'Documentos')
 @section('content')
 <div class="container">
-    <h1>Documentos</h1>
+    <h1>Tesis/Tesinas</h1>
 
     <!-- Mostrar mensaje de éxito si existe -->
     @if (session('success'))

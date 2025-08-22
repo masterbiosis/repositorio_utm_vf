@@ -42,7 +42,7 @@ class AdminController extends Controller
                Alumno::where('id',$estudiante)->update(["directortesi_id"=>$request->directortesi]);
             }
         }
-        return redirect()->route('directortesis.asignados',['directortesi'=>$request->directortesi]);
+        return redirect()->route('admin.asignar');
 
         //dd('Se esta procesando la asignacion de alumnos al director de tesis.');
     }

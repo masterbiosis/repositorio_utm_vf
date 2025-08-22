@@ -30,6 +30,7 @@
                                     <th>AP. MATERNO</th>
                                     <th>CORREO</th>
                                     <th>TELEFONO</th>
+                                    <th>ESTADO</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -44,6 +45,9 @@
                                     <td>{{$alumno->apellidom}}</td>
                                     <td>{{$alumno->email}}</td>
                                     <td>{{$alumno->telefono}}</td>
+                                    <td>
+                                        {{($alumno->directortesi_id!=1)?'Asignado':'Sin asignar'}}
+                                    </td>
                                     <td><a class="btn btn-success" href="{{route('alumnos.edit',['alumno'=>$alumno->id])}}">Modificar</a></td>
                                     <td>
                                         <form id="frm-borrar-{{$alumno->id}}" method="POST"  action="{{route('alumnos.destroy',['alumno'=>$alumno->id])}}">

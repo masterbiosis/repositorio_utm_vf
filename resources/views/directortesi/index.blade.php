@@ -33,6 +33,7 @@
                               <td>Telefono</td>
                               <td></td>
                               <td></td>
+                              <td></td>
                           </tr>
                       </thead>
                       <tbody>
@@ -45,6 +46,7 @@
                           <td>{{$directortesi->apellidom}}</td>
                           <td>{{$directortesi->email}}</td>
                           <td>{{$directortesi->telefono}}</td>
+                          <td><a class="btn btn-primary" href="{{route('directortesis.asignados',['directortesi'=>$directortesi->id])}}">Alumnos Asignados</a></td>
                           <td><a class="btn btn-success" href="{{route('directortesis.edit',['directortesi'=>$directortesi->id])}}">Modificar</a></td>
                           <td>
                           <form id="frm-borrar-{{$directortesi->id}}" method="POST" action="{{route('directortesis.destroy',['directortesi'=>$directortesi->id])}}">

@@ -79,6 +79,7 @@ class DirectortesiController extends Controller
 
     public function alumnosAsignados(Directortesi $directortesi){
         $alumnos = Alumno::where('directortesi_id',$directortesi->id)->get();
+        //$alumnos = Alumno::where('directortesi_id',Auth::user()->name)->get();
 
         return view( 'directortesi.asignados',[
             'alumnos'=>$alumnos

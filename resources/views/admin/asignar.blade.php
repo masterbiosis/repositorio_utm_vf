@@ -5,7 +5,7 @@
         <form action="{{route('admin.asignardata')}}" method="POST">
         @csrf
         <div class="row">
-            <div class="col">
+            <div class="col-4">
                 <p>Directores de Tesis</p>
                 <div class="caja">
                         <div class="mb-3">
@@ -22,23 +22,46 @@
 
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-8">
                     <p>Alumnos de Postgrado</p>
                     <div class="mb-3">
-                        @foreach($alumnos as $alumno)
-                        <div class="form-check">
-                            <input
-                            name="estudiante[]"
-                            value="{{$alumno->id}}"
-                            class="form-check-input"
-                            type="checkbox"
-                            id="alumno{{$alumno->id}}">
-                            {{$alumno->matricula}}
-                                {{$alumno->nombre }}
-                                {{$alumno->apellidop}}
-                                {{$alumno->apellidom}}
-                        </div>
-                        @endforeach
+                        <div class="card">
+                                <div class="card-body">
+                                    <table id="alumnotbl" class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Alumno</th>
+                                                <th>Director de Tesis</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($alumnos as $alumno)
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input
+                                                        name="estudiante[]"
+                                                        value="{{$alumno->id}}"
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        id="alumno{{$alumno->id}}">
+                                                        {{$alumno->matricula}}
+                                                            {{$alumno->nombre }}
+                                                            {{$alumno->apellidop}}
+                                                            {{$alumno->apellidom}}
+                                                    </div>
+                                                </td>
+                                                <td>{{($alumno->directortesi_id!=1)
+                                                ?$alumno->directortesi->nombre
+                                                :'Sin asignar'}}</td>
+                                            </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                     </div>
 
                 </div>
@@ -52,4 +75,39 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.6/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.6/js/responsive.bootstrap5.js"></script>
+
+    <script>
+         new DataTable('#alumnotbl',{
+            responsive: true,
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+         });
+    </script>
 @endsection
