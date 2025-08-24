@@ -12,9 +12,13 @@
                             <select name="directortesi" id="directortesi" class="form-select">
                                 @foreach($directortesis as $directortesi)
                                     <option value="{{$directortesi->id}}">
-                                        {{$directortesi->nombre }}
-                                        {{$directortesi->apellidop}}
-                                        {{$directortesi->apellidom}}
+                                        @if($directortesi->id == 1)
+                                            {{$directortesi->nombre }}
+                                        @else
+                                            {{$directortesi->nombre }}
+                                            {$directortesi->apellidop}}
+                                            {{$directortesi->apellidom}}
+                                        @endif
                                     </option>
                                 @endforeach
                             </select>
@@ -54,7 +58,7 @@
                                                 </td>
                                                 <td>{{($alumno->directortesi_id!=1)
                                                 ?$alumno->directortesi->nombre
-                                                :'Sin asignar'}}</td>
+                                                :$alumno->directortesi->nombre}}</td>
                                             </tr>
                                             @endforeach
 

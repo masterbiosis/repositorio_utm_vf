@@ -14,7 +14,7 @@ class DirectortesiSeeder extends Seeder
     public function run(): void
     {
         $directortesi = new Directortesi();
-        $directortesi->nombre = 'Sin asignar';
+        $directortesi->nombre = 'No asignado';
         $directortesi->apellidop = 'na';
         $directortesi->apellidom = 'na';
         $directortesi->telefono = '0000000000';
