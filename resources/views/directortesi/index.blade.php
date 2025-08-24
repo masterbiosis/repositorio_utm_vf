@@ -39,55 +39,59 @@
                       <tbody>
 
                       @foreach ( $directortesis as $directortesi)
-                      <tr>
-                          <td>{{$directortesi->id}}</td>
-                          <td>{{$directortesi->nombre}}</td>
-                          <td>{{$directortesi->apellidop}}</td>
-                          <td>{{$directortesi->apellidom}}</td>
-                          <td>{{$directortesi->email}}</td>
-                          <td>{{$directortesi->telefono}}</td>
-                          <td><a class="btn btn-primary" href="{{route('directortesis.asignados',['directortesi'=>$directortesi->id])}}">Alumnos Asignados</a></td>
-                          <td><a class="btn btn-success" href="{{route('directortesis.edit',['directortesi'=>$directortesi->id])}}">Modificar</a></td>
-                          <td>
-                          <form id="frm-borrar-{{$directortesi->id}}" method="POST" action="{{route('directortesis.destroy',['directortesi'=>$directortesi->id])}}">
-                          @csrf
-                          @method('DELETE')
-                          <button class="btn btn-danger" type="submit">Eliminar</button>
-                          </form>
-                          </td>
-                      </tr>
-                      <script type="module">
-                                      $("#frm-borrar-{{$directortesi->id}}").submit(function(e){
-                                      //alert('SUBMIT OK');
-                                      e.preventDefault();
+                      @if($directortesi->nombre != 'No asignado')
 
-                                      //////////////////////////////auth
-                                      Swal.fire({
-                                          title: "Estas seguro?",
-                                          text: "No se podra revertir!",
-                                          icon: "warning",
-                                          showCancelButton: true,
-                                          confirmButtonColor: "#3085d6",
-                                          cancelButtonColor: "#d33",
-                                          confirmButtonText: "Si, borrar!"
-                                          }).then((result) => {
-                                          if (result.isConfirmed) {
-                                              /*
-                                              Swal.fire({
-                                              title: "Deleted!",
-                                              text: "Your file has been deleted.",
-                                              icon: "success"
-                                              });
-                                              */
-                                             this.submit();
-                                          }
-                                      });
+                        <tr>
+                            <td>{{$directortesi->id}}</td>
+                            <td>{{$directortesi->nombre}}</td>
+                            <td>{{$directortesi->apellidop}}</td>
+                            <td>{{$directortesi->apellidom}}</td>
+                            <td>{{$directortesi->email}}</td>
+                            <td>{{$directortesi->telefono}}</td>
+                            <td><a class="btn btn-primary" href="{{route('directortesis.asignados',['directortesi'=>$directortesi->id])}}">Alumnos Asignados</a></td>
+                            <td><a class="btn btn-success" href="{{route('directortesis.edit',['directortesi'=>$directortesi->id])}}">Modificar</a></td>
+                            <td>
+                            <form id="frm-borrar-{{$directortesi->id}}" method="POST" action="{{route('directortesis.destroy',['directortesi'=>$directortesi->id])}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>
+                            </td>
+                        </tr>
+                        <script type="module">
+                                        $("#frm-borrar-{{$directortesi->id}}").submit(function(e){
+                                        //alert('SUBMIT OK');
+                                        e.preventDefault();
 
-                                      /////////////////////////////auth
+                                        //////////////////////////////auth
+                                        Swal.fire({
+                                            title: "Estas seguro?",
+                                            text: "No se podra revertir!",
+                                            icon: "warning",
+                                            showCancelButton: true,
+                                            confirmButtonColor: "#3085d6",
+                                            cancelButtonColor: "#d33",
+                                            confirmButtonText: "Si, borrar!"
+                                            }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                /*
+                                                Swal.fire({
+                                                title: "Deleted!",
+                                                text: "Your file has been deleted.",
+                                                icon: "success"
+                                                });
+                                                */
+                                                this.submit();
+                                            }
+                                        });
 
-                                  });//fin SUBMIT
-                                  </script>
+                                        /////////////////////////////auth
+
+                                    });//fin SUBMIT
+                            </script>
+                        @endif
                       @endforeach
+
                       </tbody>
                     </table>
                 </div>

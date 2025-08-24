@@ -64,7 +64,7 @@
                                         <a class="nav-link {{request()->is('lineas') ? 'active':''}}" href="{{ route('lineas.index') }}">Líneas de Investigación</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{request()->is('directortesis') ? 'active':''}}" href="{{ route('directortesis.index') }}">Director de Tesis</a>
+                                        <a class="nav-link {{(request()->is('directortesis') or request()->is('asignados')) ? 'active':''}}" href="{{ route('directortesis.index') }}">Director de Tesis</a>
                                     </li>
 
                                     <li class="nav-item">
