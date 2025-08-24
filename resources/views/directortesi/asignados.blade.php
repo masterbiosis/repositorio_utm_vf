@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-3">
-                <h2>Alumnos Asignados</h2>
+                <h3>Alumnos Asignados a: <span class="text-muted">{{$directortesi->nombre}} {{$directortesi->apellidop}} {{$directortesi->apellidom}}</span></h3>
             </div>
             <div class="col mt-3">
                 <div class="card">

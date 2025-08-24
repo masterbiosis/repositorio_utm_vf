@@ -89,7 +89,8 @@ class DirectortesiController extends Controller
         //$alumnos = Alumno::where('directortesi_id',Auth::user()->name)->get();
 
         return view( 'directortesi.asignados',[
-            'alumnos'=>$alumnos
+            'alumnos'=>$alumnos,
+            'directortesi'=>$directortesi
         ]);
     }
 }
