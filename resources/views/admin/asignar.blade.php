@@ -8,24 +8,28 @@
             <div class="col-4">
                 <p>Directores de Tesis</p>
                 <div class="caja">
-                        <div class="mb-3">
-                            <select name="directortesi" id="directortesi" class="form-select">
-                                @foreach($directortesis as $directortesi)
-                                    <option value="{{$directortesi->id}}">
-                                        @if($directortesi->id == 1)
-                                            {{$directortesi->nombre }}
-                                        @else
-                                            {{$directortesi->nombre }}
-                                            {$directortesi->apellidop}}
-                                            {{$directortesi->apellidom}}
-                                        @endif
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
+                    <div class="mb-3">
+                        <select name="directortesi" id="directortesi" class="form-select">
+                            @foreach($directortesis as $directortesi)
+                                <option value="{{$directortesi->id}}">
+                                    @if($directortesi->id == 1)
+                                        {{$directortesi->nombre }}
+                                    @else
+                                        {{$directortesi->nombre}}
+                                        {{$directortesi->apellidop}}
+                                        {{$directortesi->apellidom}}
+                                    @endif
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Asignar</button>
+                    </div>
+                </div>
+            </div>
                 <div class="col-8">
                     <p>Alumnos de Postgrado</p>
                     <div class="mb-3">
@@ -58,7 +62,7 @@
                                                 </td>
                                                 <td>{{($alumno->directortesi_id!=1)
                                                 ?$alumno->directortesi->nombre
-                                                :$alumno->directortesi->nombre}}</td>
+                                                :'No asignado'}}</td>
                                             </tr>
                                             @endforeach
 
@@ -69,13 +73,7 @@
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Asignar</button>
-                        </div>
-                    </div>
-                </div>
+
             </form>
         </div>
     </div>
