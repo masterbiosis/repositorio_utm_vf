@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Storage;
 
 class DocumentoController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth')->only('index'); //Solamente autentifica este metodo
+        //$this->middleware('auth')->only(['index','create']); Solamente los que esten en el arreglo
+        //$this->middleware('auth')->except('index'); Igual que el anterior solo que estos son excluidos, es decir, no necesitaran hacer loqin
+        $this->middleware('auth');//Exige la autenticacion para cualquiera de los metodos.
+    }
     /**
      * Display a listing of the resource.
      */
@@ -50,15 +57,15 @@ class DocumentoController extends Controller
      */
     public function store(StoreDocumentoRequest $request)
     {
-        
+
         // Crear el documento
         /*$documento = new Documento();
         $documento->titulo;
         $documento->fecha_presentacion ;
         $documento->alumno_id ;
-        $documento->programa_id; 
+        $documento->programa_id;
         $documento->asesor_id;
-        $documento->director_tesi_id; 
+        $documento->director_tesi_id;
         $documento->linea_id;
         */
         $documento = Documento::create(request()->all());

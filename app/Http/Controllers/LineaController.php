@@ -9,6 +9,13 @@ use App\Models\Programa;
 
 class LineaController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth')->only('index'); //Solamente autentifica este metodo
+        //$this->middleware('auth')->only(['index','create']); Solamente los que esten en el arreglo
+        //$this->middleware('auth')->except('index'); Igual que el anterior solo que estos son excluidos, es decir, no necesitaran hacer loqin
+        $this->middleware('auth');//Exige la autenticacion para cualquiera de los metodos.
+    }
     /**
      * Display a listing of the resource.
      */
@@ -18,14 +25,14 @@ class LineaController extends Controller
         return view('linea.index',[
             'lineas'=>$lineas
         ]);
-        
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         $programas=Programa::all();
         return view("linea.create",
     ['programas'=>$programas]);
@@ -53,7 +60,7 @@ class LineaController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Linea $linea)
-    {   
+    {
         $programas=Programa::all();
         return view('linea.edit',[
             'linea'=>$linea,

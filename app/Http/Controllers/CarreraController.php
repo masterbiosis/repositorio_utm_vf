@@ -8,6 +8,13 @@ use App\Models\Carrera;
 
 class CarreraController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth')->only('index'); //Solamente autentifica este metodo
+        //$this->middleware('auth')->only(['index','create']); Solamente los que esten en el arreglo
+        //$this->middleware('auth')->except('index'); Igual que el anterior solo que estos son excluidos, es decir, no necesitaran hacer loqin
+        $this->middleware('auth');//Exige la autenticacion para cualquiera de los metodos.
+    }
     /**
      * Display a listing of the resource.
      */
