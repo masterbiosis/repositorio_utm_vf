@@ -15,6 +15,7 @@
     @yield('css')
 
     <!-- Scripts -->
+
     @vite(['resources/sass/app.scss','resources/js/app.js'])
     <title>@yield('title')</title>
 </head>
@@ -45,9 +46,22 @@
                                             <li><a class="dropdown-item" href="{{route('admin.asignar')}}">Asignar Director de Tesis</a></li>
                                         </ul>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link {{request()->is('asesorempresas') ? 'active':''}}" href="{{ route('asesorempresas.index') }}">Asesor Empresarial</a>
+
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link {{(request()->is('empresa') or request()->is('asesorempresas')) ? 'active':''}} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Empresa
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link {{request()->is('empresas') ? 'active':''}}" href="{{ route('empresas.index') }}">Empresas</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link {{request()->is('asesorempresas') ? 'active':''}}" href="{{ route('asesorempresas.index') }}">Asesor Empresarial</a>
+                                            </li>
+                                        </ul>
                                     </li>
+
                                     <li class="nav-item">
                                         <a class="nav-link {{request()->is('carreras') ? 'active':''}}" href="{{ route('carreras.index') }}">Carreras</a>
                                     </li>
@@ -56,9 +70,6 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{request()->is('documentos') ? 'active':''}}" href="{{ route('documentos.index') }}">Tesis/Tesinas</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link {{request()->is('empresas') ? 'active':''}}" href="{{ route('empresas.index') }}">Empresas</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{request()->is('lineas') ? 'active':''}}" href="{{ route('lineas.index') }}">Líneas de Investigación</a>
@@ -78,13 +89,13 @@
                                     @guest
                                         @if (Route::has('login'))
                                             <li class="nav-item">
-                                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                <a class="nav-link text-black" href="{{ route('login') }}">{{ __('Login') }}</a>
                                             </li>
                                         @endif
 
                                         @if (Route::has('register'))
                                             <li class="nav-item">
-                                                <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                <a class="nav-link text-black" href="{{ route('register') }}">{{ __('Register') }}</a>
                                             </li>
                                         @endif
                                     @else
@@ -135,11 +146,11 @@
             </div>
         </div>
     </div>
-    <footer class="bg-blue3 text-white text-center p-3 shadow-sm">
+    <footer class="bg-blue3 text-black text-center p-3 shadow-sm">
     <div class="container">
         <p>© {{ date('Y') }} Mi Aplicación. Todos los derechos reservados.</p>
     </div>
-</footer>
+    </footer>
 @yield('js')
 </body>
 </html>

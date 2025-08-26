@@ -7,17 +7,19 @@
 @section('title', 'Documentos')
 @section('content')
 <div class="container">
-    <h1>Tesis/Tesinas</h1>
 
     <!-- Mostrar mensaje de éxito si existe -->
     @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
 
     <div class="row">
-        <div class="col-11"></div>
+        <div class="col-11">
+            <h1>Tesis/Tesinas</h1>
+
+        </div>
         <div class="col-1">
             <a class="btn btn-primary" href="{{ route('documentos.create') }}">Nuevo</a>
         </div>

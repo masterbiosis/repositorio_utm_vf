@@ -8,9 +8,9 @@
 @section('content')
 
     <div class="container">
-        <h1>Subdirector de Carrera</h1>
         <div class="row">
             <div class="col-11">
+                <h1>Subdirector de Carrera</h1>
             </div>
             <div class="col-1">
                 <a class="btn btn-primary" href="{{route('subdirectors.create')}}">Nuevo</a>

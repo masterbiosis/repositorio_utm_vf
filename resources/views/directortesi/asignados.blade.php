@@ -37,8 +37,7 @@
                                 <td>{{$alumno->apellidom}}</td>
                                 <td>{{$alumno->email}}</td>
                                 <td>{{$alumno->telefono}}</td>
-                                <td><a class="btn btn-success" href="{{route('alumnos.edit',['alumno'=>$alumno->id])}}">Habilitar</a></td>
-
+                                <td><a class="btn btn-success" href="{{route('email.valdar_alumno',['email'=>$alumno->email])}}">Habilitar Correo</a></td>
                             </tr>
                         @endforeach
                         </tbody>

@@ -5,8 +5,13 @@
         <form action="{{route('admin.asignardata')}}" method="POST">
         @csrf
         <div class="row">
+            <div class="col">
+                <h1>Asignación de Director de Tesis</h1>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-4">
-                <p>Directores de Tesis</p>
+                <h3>Directores de Tesis</h3>
                 <div class="caja">
                     <div class="mb-3">
                         <select name="directortesi" id="directortesi" class="form-select">
@@ -31,7 +36,7 @@
                 </div>
             </div>
                 <div class="col-8">
-                    <p>Alumnos de Postgrado</p>
+                    <h3>Alumnos de Postgrado</h3>
                     <div class="mb-3">
                         <div class="card">
                                 <div class="card-body">

@@ -14,15 +14,21 @@ use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\AsesorempresaController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\LineaController;
+use App\Mail\MailAlumnoFinalizadoMailable;
 use App\Models\Asesorempresa;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('paginas.index');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//////////// EMAIL /////////////////////
+Route::get('/validar_alumno/{email}',[MailAlumnoFinalizadoMailable::class,'validar_alumno'])->name('email.valdar_alumno');
 
 
 ///////////////TESTING//////////////
