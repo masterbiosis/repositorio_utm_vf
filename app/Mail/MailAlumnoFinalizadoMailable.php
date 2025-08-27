@@ -12,6 +12,7 @@ use Illuminate\Queue\SerializesModels;
 
 use Illuminate\Support\Str;
 use App\Models\Alumno;
+use App\Models\Correo;
 use Illuminate\Support\Facades\Mail;
 use Ramsey\Uuid\Type\Integer;
 
@@ -23,7 +24,7 @@ class MailAlumnoFinalizadoMailable extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        protected Alumno $alumno,
+        protected Correo $correo,
     )
     {
         //
@@ -50,7 +51,7 @@ class MailAlumnoFinalizadoMailable extends Mailable
             view: 'mail.mail_alumno_confirmar',
             with: [
                 //'nombre'=>$this->alumno->nombre.' '.$this->alumno->apellidop.' '.$this->alumno->apellidom
-                'alumno'=>$this->alumno,
+                'correo'=>$this->correo,
 
             ],
         );
@@ -66,19 +67,14 @@ class MailAlumnoFinalizadoMailable extends Mailable
         return [];
     }
 
-    public function validar_alumno($email){
+    public function validar_alumno(Alumno $alumno){
         //Mail::to("julio.correa.777@gmail.com")->send(new MailAlumnoFinalizadoMailable);
         //dd($id_correo);
         $password = Str::password(16, true, true, true, false);
+         $this->correo->alumno = $alumno;
+         $this->correo->password = $password;
 
-        //dd($password);
-         $alumno= Alumno::where('id',1)->first();
-         $this->alumno = $alumno;
-         $this->alumno->id = $alumno->id;
-         $this->alumno->email = $alumno->email;
-         $this->alumno->password = $password;
-
-        Mail::to($email)->send(new MailAlumnoFinalizadoMailable($alumno));
+        Mail::to($alumno->email)->send(new MailAlumnoFinalizadoMailable($this->correo));
 
 
 

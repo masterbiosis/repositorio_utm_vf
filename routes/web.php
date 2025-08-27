@@ -28,7 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //////////// EMAIL /////////////////////
-Route::get('/validar_alumno/{email}',[MailAlumnoFinalizadoMailable::class,'validar_alumno'])->name('email.valdar_alumno');
+Route::get('/validar_alumno/{alumno}',[MailAlumnoFinalizadoMailable::class,'validar_alumno'])->name('email.validar_alumno');
 
 
 ///////////////TESTING//////////////

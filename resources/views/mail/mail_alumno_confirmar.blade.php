@@ -14,10 +14,10 @@
 <body>
     <main>
         <div class="div">
-            <h2>Alumno: {{$alumno->nombre}} {{$alumno->apellidom}} {{$alumno->apellidom}} </h2>
+            <h2>Alumno: {{$correo->alumno->nombre}} {{$correo->alumno->apellidom}} {{$correo->alumno->apellidom}} </h2>
             <p>Credenciales para acceder a la plataforma y subir la tesis/tesina.</p>
-            <p>Email: <span class="text-muted">{{$alumno->email}}</span> </p>
-            <p>Password: <span>{{$alumno->password}}</span></p>
+            <p>Email: <span class="text-muted">{{$correo->alumno->email}}</span> </p>
+            <p>Password: <span>{{$correo->password}}</span></p>
             <p>Verificar correo: </p>
         </div>
     </main>

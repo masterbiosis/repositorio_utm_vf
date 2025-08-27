@@ -19,7 +19,6 @@ class Alumno extends Model
         'apellidom',
         'email',
         'telefono',
-        'password',
         'directortesi_id',
         'estado'
     ];
