@@ -16,6 +16,7 @@ use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\LineaController;
 use App\Mail\MailAlumnoFinalizadoMailable;
 use App\Models\Asesorempresa;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {

@@ -13,6 +13,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Str;
 use App\Models\Alumno;
 use App\Models\Correo;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Ramsey\Uuid\Type\Integer;
 
@@ -73,6 +74,12 @@ class MailAlumnoFinalizadoMailable extends Mailable
         $password = Str::password(16, true, true, true, false);
          $this->correo->alumno = $alumno;
          $this->correo->password = $password;
+         $usuario =new User();
+         $usuario->name = $this->correo->alumno->nombre.' ' .$this->correo->alumno->apellidop.' '.$this->correo->alumno->apellidom;
+         $usuario->email = $this->correo->alumno->email;
+         $usuario->password = $password;
+         $usuario->save();
+         dd();
 
         Mail::to($alumno->email)->send(new MailAlumnoFinalizadoMailable($this->correo));
 
