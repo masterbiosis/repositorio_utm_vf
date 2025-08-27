@@ -10,9 +10,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
+use Illuminate\Support\Str;
 use App\Models\Alumno;
-
 use Illuminate\Support\Facades\Mail;
+use Ramsey\Uuid\Type\Integer;
 
 class MailAlumnoFinalizadoMailable extends Mailable
 {
@@ -49,7 +50,7 @@ class MailAlumnoFinalizadoMailable extends Mailable
             view: 'mail.mail_alumno_confirmar',
             with: [
                 //'nombre'=>$this->alumno->nombre.' '.$this->alumno->apellidop.' '.$this->alumno->apellidom
-                'alumno'=>$this->alumno
+                'alumno'=>$this->alumno,
 
             ],
         );
@@ -68,13 +69,18 @@ class MailAlumnoFinalizadoMailable extends Mailable
     public function validar_alumno($email){
         //Mail::to("julio.correa.777@gmail.com")->send(new MailAlumnoFinalizadoMailable);
         //dd($id_correo);
-         $alumno= Alumno::where('id',11)->first();
+        $password = Str::password(16, true, true, true, false);
+
+        //dd($password);
+         $alumno= Alumno::where('id',1)->first();
          $this->alumno = $alumno;
-         //dd($this->alumno);
          $this->alumno->id = $alumno->id;
          $this->alumno->email = $alumno->email;
+         $this->alumno->password = $password;
 
         Mail::to($email)->send(new MailAlumnoFinalizadoMailable($alumno));
+
+
 
         return "Mensaje enviado...";
     }

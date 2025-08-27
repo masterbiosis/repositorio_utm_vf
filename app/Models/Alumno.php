@@ -19,7 +19,9 @@ class Alumno extends Model
         'apellidom',
         'email',
         'telefono',
-        'directortesi_id'
+        'password',
+        'directortesi_id',
+        'estado'
     ];
 
     /**public function documentos(){

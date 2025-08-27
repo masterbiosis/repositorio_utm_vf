@@ -15,9 +15,9 @@
     <main>
         <div class="div">
             <h2>Alumno: {{$alumno->nombre}} {{$alumno->apellidom}} {{$alumno->apellidom}} </h2>
-            <p>No se requiere contestar, ya que solamente, es una prueba de envia de correo electrónico</p>
+            <p>Credenciales para acceder a la plataforma y subir la tesis/tesina.</p>
             <p>Email: <span class="text-muted">{{$alumno->email}}</span> </p>
-            <p>Password: <span class="text-muted">7889g78gj6</span></p>
+            <p>Password: <span>{{$alumno->password}}</span></p>
             <p>Verificar correo: </p>
         </div>
     </main>

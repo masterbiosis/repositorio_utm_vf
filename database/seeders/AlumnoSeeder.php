@@ -15,6 +15,30 @@ class AlumnoSeeder extends Seeder
     public function run(): void
     {
        //$directortesi = Directortesi::first();
-       Alumno::factory(10)->create();
+       //Alumno::factory(10)->create();
+       $alumno = new Alumno();
+       $alumno->matricula = 'UTM123456TIM';
+       $alumno->nombre = 'Julio César';
+       $alumno->apellidop = 'Correa';
+       $alumno->apellidom = 'Torres';
+       $alumno->email = 'julio.correa.777@gmail.com';
+       $alumno->telefono = '4431920548';
+       $alumno->save();
+
+
+
+
+
+       /**
+        *
+       matricula',
+        'nombre',
+        'apellidop',
+        'apellidom',
+        'email',
+        'telefono',
+        'directortesi_id',
+        'estado'
+        */
     }
 }

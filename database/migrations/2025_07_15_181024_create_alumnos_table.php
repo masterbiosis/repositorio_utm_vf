@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('apellidom');
             $table->string('email');
             $table->string('telefono');
+            $table->string('password')->default('');
             $table->bigInteger('directortesi_id')->unsigned()->default(1);
+            $table->string('estado')->default('pendiente');
             $table->timestamps();
 
 

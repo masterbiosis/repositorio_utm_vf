@@ -24,6 +24,7 @@ class AlumnoFactory extends Factory
             'apellidom'=>$this->faker->randomElement(["Cruz ","Ramírez","Sánchez","Rodríguez","González","López","Martínez","García","Hernández","Perez","Sosa","Torres","Martínez","Benítez","Morales"]),
             'telefono'=>$this->faker->tollFreePhoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
+
         ];
     }
 }
